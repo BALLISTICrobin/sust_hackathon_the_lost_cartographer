@@ -25,25 +25,46 @@ An AI-powered internal copilot for support agents to automate complaint classifi
    ```
    *Note: Two API keys are recommended to enable key rotation for higher rate limits.*
 
-## Running the API
+## Running the API & Local Server
 
-Start the FastAPI server using Uvicorn:
+To start the FastAPI web service locally:
 
-```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000
-```
-
-The API will be available at `http://localhost:8000`. You can view the interactive Swagger documentation at `http://localhost:8000/docs`.
+1. Open your terminal, navigate to the project directory, and activate your virtual environment:
+   ```bash
+   cd /Users/niloydas/Desktop/sust_hackathon
+   source venv/bin/activate
+   ```
+2. Start the FastAPI server using Uvicorn:
+   ```bash
+   uvicorn app.main:app --host 0.0.0.0 --port 8000
+   ```
+   *The server will be running on `http://127.0.0.1:8000`. You can access interactive Swagger docs at `http://127.0.0.1:8000/docs`.*
 
 ---
 
-## Testing
+## Running Verification & Tests
 
-Run the automated test suite (including the 10 provided sample cases and edge cases):
+We provide two separate ways to verify the service: automated unit tests and a live manual check script.
 
+### Method A: Automated Tests (Pytest)
+This is the recommended testing method. It uses an in-process FastAPI `TestClient` (no separate server window needed). It runs health checks, safety checks, prompt injection tests, and validates correctness on all sample cases.
+
+With your virtual environment activated, run:
 ```bash
-python -m pytest tests/test_sample_cases.py -v
+pytest tests/test_sample_cases.py -v
 ```
+
+### Method B: Live Verification Script
+If you have started the server in **one terminal tab** (using the command in the *Running the API* section), you can run a script in a **second terminal tab** to test all 10 sample cases against the live API:
+
+1. Open a new terminal tab/window.
+2. Activate your virtual environment and run the manual check script:
+   ```bash
+   cd /Users/niloydas/Desktop/sust_hackathon
+   source venv/bin/activate
+   python check_cases_manually.py
+   ```
+   *Note: Under macOS, python's standard `urllib` may fail to connect to `localhost` due to IPv6 loopback routing. The script uses `127.0.0.1` explicitly to guarantee connection success.*
 
 ---
 

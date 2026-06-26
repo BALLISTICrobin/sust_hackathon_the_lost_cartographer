@@ -36,4 +36,3 @@ node_modules/
 
 # Gemini / Agent artifacts (not part of submission)
 .gemini/
-.agents/
