@@ -1,0 +1,39 @@
+# Environment & Secrets
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing / Caching
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node (if any)
+node_modules/
+
+# Gemini / Agent artifacts (not part of submission)
+.gemini/
+.agents/
