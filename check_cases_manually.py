@@ -2,12 +2,15 @@ import json
 import urllib.request
 import urllib.error
 import time
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 URL = "http://127.0.0.1:8000/analyze-ticket"
 
 def check_cases():
     try:
-        with open("SUST_Preli_Sample_Cases.json", "r") as f:
+        with open("SUST_Preli_Sample_Cases.json", "r", encoding="utf-8") as f:
             data = json.load(f)
             cases = data.get("cases", [])
     except FileNotFoundError:

@@ -74,7 +74,7 @@ def test_latency_p95():
 
 def test_real_sample_cases():
     try:
-        with open("SUST_Preli_Sample_Cases.json", "r") as f:
+        with open("SUST_Preli_Sample_Cases.json", "r", encoding="utf-8") as f:
             data = json.load(f)
             cases = data.get("cases", [])
     except FileNotFoundError:
