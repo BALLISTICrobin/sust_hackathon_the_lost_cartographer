@@ -6,14 +6,14 @@
     "case_type": "wrong_transfer",
     "severity": "medium",
     "department": "dispute_resolution",
-    "agent_summary": "Customer sent 5000 taka to wrong number, claims intended number was 01712345678.",
-    "recommended_next_action": "Investigate transaction and contact customer for additional details.",
-    "customer_reply": "We are investigating the issue. Any eligible amount will be returned through official channels. Please allow 3-5 business days for the refund process to complete.",
+    "agent_summary": "Customer claims to have sent 5000 taka to a wrong number and is seeking help to recover the funds.",
+    "recommended_next_action": "Investigate the transaction and contact the recipient to resolve the issue.",
+    "customer_reply": "Thank you for reaching out to us. We're investigating the issue. Any eligible amount will be returned through official channels if possible. Please be patient and we'll be in touch soon.",
     "human_review_required": true,
     "confidence": 0.9,
     "reason_codes": [
-      "wrong_number",
-      "unresponsive_recipient"
+      "wrong_transfer",
+      "inconsistent_counterparty_info"
     ]
   },
   {
@@ -21,16 +21,16 @@
     "relevant_transaction_id": "TXN-9202",
     "evidence_verdict": "inconsistent",
     "case_type": "wrong_transfer",
-    "severity": "high",
+    "severity": "medium",
     "department": "dispute_resolution",
-    "agent_summary": "Customer claims to have sent 2000 to the wrong person by mistake. The transaction matches the details provided.",
-    "recommended_next_action": "Investigate and potentially reverse the transaction",
-    "customer_reply": "Thank you for reaching out to us. I'm investigating the transaction TXN-9202. Any eligible amount will be returned through official channels if applicable. Please allow me some time to look into this.",
+    "agent_summary": "Customer claims to have sent 2000 to the wrong person by mistake. The transaction TXN-9202 matches the complaint.",
+    "recommended_next_action": "Review and potentially escalate to dispute resolution",
+    "customer_reply": "Thank you for reaching out to us. We're investigating this issue. Any eligible amount will be returned through official channels if applicable.",
     "human_review_required": true,
     "confidence": 0.9,
     "reason_codes": [
       "matching_transaction_found",
-      "consistent_claims"
+      "consistent_story"
     ]
   },
   {
@@ -42,12 +42,12 @@
     "department": "payments_ops",
     "agent_summary": "Customer's mobile recharge payment of 1200 taka failed, but their balance was deducted.",
     "recommended_next_action": "Investigate the failed payment and process a refund if eligible",
-    "customer_reply": "We're sorry to hear that your mobile recharge payment failed. Our records show that the payment was attempted but did not go through. Any eligible amount will be returned to you through official channels. Can you please check your balance after some time and let us know if the issue persists?",
+    "customer_reply": "Thank you for reaching out. We're investigating your case. Any eligible amount will be returned through official channels. Please allow 3-5 business days for the refund to be processed.",
     "human_review_required": true,
     "confidence": 0.9,
     "reason_codes": [
       "payment_failure",
-      "balance_deduction_issue"
+      "balance_deduction"
     ]
   },
   {
@@ -57,9 +57,9 @@
     "case_type": "refund_request",
     "severity": "medium",
     "department": "customer_support",
-    "agent_summary": "Customer requests refund for a payment made to a merchant.",
-    "recommended_next_action": "Verify refund eligibility and process if applicable.",
-    "customer_reply": "Thank you for reaching out. We're processing your refund request. Any eligible amount will be returned through official channels. Please allow 3-5 business days for the refund to reflect in your account.",
+    "agent_summary": "Customer requests refund for a payment of 500 taka made to a merchant.",
+    "recommended_next_action": "Verify refund eligibility and process if applicable",
+    "customer_reply": "Thank you for reaching out. We're looking into your request. Any eligible refund will be processed through official channels.",
     "human_review_required": true,
     "confidence": 0.9,
     "reason_codes": [
@@ -74,15 +74,14 @@
     "case_type": "phishing_or_social_engineering",
     "severity": "high",
     "department": "fraud_risk",
-    "agent_summary": "Customer reported a suspicious call claiming to be from bKash, asking for OTP.",
-    "recommended_next_action": "Do not engage with the suspicious caller. Contact bKash directly through official channels to verify.",
-    "customer_reply": "Thank you for reaching out to us. We understand your concern. bKash will never ask for your OTP or sensitive information through a call. Please do not share your OTP with anyone. For your safety, we recommend that you contact bKash directly through their official customer support channels to verify the authenticity of the call. We are here to assist you further if needed.",
+    "agent_summary": "Customer received a suspicious call claiming to be from bKash, asking for OTP.",
+    "recommended_next_action": "Review the ticket details manually and resolve according to standard operational procedures.",
+    "customer_reply": "Your request is under review. Any eligible amount will be returned through official channels. Please do not share your PIN or OTP with anyone.",
     "human_review_required": true,
     "confidence": 0.9,
     "reason_codes": [
       "suspicious_call",
-      "otp_request",
-      "phishing_attempt"
+      "otp_request"
     ]
   },
   {
@@ -92,14 +91,14 @@
     "case_type": "other",
     "severity": "medium",
     "department": "customer_support",
-    "agent_summary": "Customer reported an issue with their money after a cash in transaction.",
-    "recommended_next_action": "Investigate the cash in transaction TXN-9601 for any potential issues.",
-    "customer_reply": "Thank you for reaching out. We're looking into the transaction. Please allow 24-48 hours for the funds to reflect in your account. If the issue persists, we'll be in touch.",
+    "agent_summary": "Customer reports an issue with their money after a cash in transaction.",
+    "recommended_next_action": "Investigate the cash in transaction TXN-9601 for any potential issues or discrepancies.",
+    "customer_reply": "Thank you for reaching out. We're looking into your issue. Any eligible amount will be resolved through official channels.",
     "human_review_required": true,
     "confidence": 0.8,
     "reason_codes": [
       "inconsistent_transaction_status",
-      "potential_agent_issue"
+      "customer_concern"
     ]
   },
   {
@@ -109,14 +108,14 @@
     "case_type": "agent_cash_in_issue",
     "severity": "medium",
     "department": "agent_operations",
-    "agent_summary": "The customer claims to have made a cash-in of 2000 BDT with an agent, but the amount is not reflected in their balance. The agent claims to have sent the money.",
-    "recommended_next_action": "Investigate the transaction status with the agent and verify if the cash-in was successful.",
-    "customer_reply": "আমাদের তদন্তের জন্য আপনাকে ধৈর্য্য ধরতে হবে। আমরা এজেন্টের সাথে যোগাযোগ করব এবং সমস্যাটি সমাধান করব।",
+    "agent_summary": "Customer complained about a cash-in transaction of 2000 BDT not reflecting in their balance, despite the agent claiming to have sent the funds.",
+    "recommended_next_action": "Investigate the transaction status and contact the agent for clarification.",
+    "customer_reply": "আমাদের তদন্তের জন্য ধন্যবাদ। আমরা আপনার সমস্যা সমাধানের জন্য কাজ করছি। দয়া করে আরও কিছুক্ষণ অপেক্ষা করুন।",
     "human_review_required": true,
     "confidence": 0.8,
     "reason_codes": [
       "inconsistent_transaction_status",
-      "agent_cash_in_issue"
+      "agent_involvement"
     ]
   },
   {
@@ -126,14 +125,14 @@
     "case_type": "wrong_transfer",
     "severity": "medium",
     "department": "dispute_resolution",
-    "agent_summary": "Customer sent 1000 to brother but brother claims not received. Transaction to correct recipient was successful.",
+    "agent_summary": "Customer sent 1000 to brother but brother claims not received. Transaction shows completed.",
     "recommended_next_action": "Review the ticket details manually and resolve according to standard operational procedures.",
     "customer_reply": "Your request is under review. Any eligible amount will be returned through official channels. Please do not share your PIN or OTP with anyone.",
     "human_review_required": true,
     "confidence": 0.8,
     "reason_codes": [
-      "inconsistent_recipient_confirmation",
-      "transaction_status_mismatch"
+      "transaction_inconsistency",
+      "customer_concern"
     ]
   },
   {
@@ -143,14 +142,14 @@
     "case_type": "merchant_settlement_delay",
     "severity": "medium",
     "department": "merchant_operations",
-    "agent_summary": "Merchant reported delayed settlement of 15000 taka from yesterday's sales. A pending settlement transaction of matching amount was found.",
-    "recommended_next_action": "Investigate settlement process and timeline. Check for any technical issues or processing delays.",
-    "customer_reply": "Thank you for reaching out. We are looking into the settlement delay of your sales amount. Please allow some time for processing. We will update you soon.",
+    "agent_summary": "The merchant's sales of 15000 taka from yesterday have not been settled to their account yet. The settlement transaction is still pending.",
+    "recommended_next_action": "Review the ticket details manually and resolve according to standard operational procedures.",
+    "customer_reply": "Your request is under review. Any eligible amount will be returned through official channels. Please do not share your PIN or OTP with anyone.",
     "human_review_required": true,
     "confidence": 0.9,
     "reason_codes": [
       "settlement_delay",
-      "merchant_complaint"
+      "merchant_inquiry"
     ]
   },
   {
@@ -160,14 +159,14 @@
     "case_type": "duplicate_payment",
     "severity": "medium",
     "department": "payments_ops",
-    "agent_summary": "Customer claims to have made a single payment of 850 taka for their electricity bill, but two transactions were recorded.",
-    "recommended_next_action": "Investigate duplicate payment and process reversal if necessary",
-    "customer_reply": "We apologize for the duplicate deduction from your account. Our team will investigate this matter and any eligible amount will be returned through official channels.",
+    "agent_summary": "Customer claims to have made a single payment of 850 taka for their electricity bill, but two payments were deducted from their account.",
+    "recommended_next_action": "Investigate and process a refund for the duplicate payment if eligible.",
+    "customer_reply": "We apologize for the inconvenience. Our records show two payments of 850 taka were made to DESCO. We'll investigate and any eligible amount will be returned through official channels. Please allow 3-5 business days for the refund to be processed.",
     "human_review_required": true,
     "confidence": 0.9,
     "reason_codes": [
       "duplicate_transaction",
-      "inconsistent_evidence"
+      "inconsistent_account_balance"
     ]
   }
 ]
