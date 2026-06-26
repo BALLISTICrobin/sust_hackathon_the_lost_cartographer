@@ -6,7 +6,9 @@ import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-URL = "http://127.0.0.1:8000/analyze-ticket"
+URL = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8000/analyze-ticket"
+if not URL.endswith("/analyze-ticket"):
+    URL = URL.rstrip("/") + "/analyze-ticket"
 
 def check_cases():
     try:
