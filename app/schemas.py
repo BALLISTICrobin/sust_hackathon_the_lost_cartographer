@@ -9,6 +9,8 @@ class TransactionEntry(BaseModel):
     counterparty: str
     status: Literal["completed", "failed", "pending", "reversed"]
 
+    model_config = {"allow_inf_nan": False}
+
 class AnalyzeTicketRequest(BaseModel):
     ticket_id: str
     complaint: str
@@ -18,6 +20,8 @@ class AnalyzeTicketRequest(BaseModel):
     campaign_context: Optional[str] = None
     transaction_history: Optional[List[TransactionEntry]] = Field(default_factory=list)
     metadata: Optional[dict] = None
+
+    model_config = {"allow_inf_nan": False}
 
 class AnalyzeTicketResponse(BaseModel):
     ticket_id: str
@@ -39,3 +43,4 @@ class AnalyzeTicketResponse(BaseModel):
     human_review_required: bool
     confidence: Optional[float] = None
     reason_codes: Optional[List[str]] = None
+    reasoning: Optional[str] = Field(default=None, exclude=True)
