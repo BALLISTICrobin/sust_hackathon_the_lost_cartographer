@@ -107,3 +107,52 @@ This project utilizes the following models via the **Groq Cloud API** to maximiz
 1. The system attempts inference with `llama-3.3-70b-versatile` using the Primary API Key.
 2. If rate-limited (429), it rotates to the Fallback API Key using the same 70B model.
 3. If both keys hit their TPM limits, it dynamically switches to `meta-llama/llama-4-scout-17b-16e-instruct` to guarantee a successful response within the 30s timeout window.
+
+---
+
+## Sample API Request & Response
+
+### Sample Request
+`POST /analyze-ticket`
+
+```json
+{
+  "ticket_id": "TKT-001",
+  "complaint": "I sent 5000 taka to the wrong number. Please return it.",
+  "language": "en",
+  "channel": "in_app_chat",
+  "user_type": "customer",
+  "transaction_history": [
+    {
+      "transaction_id": "TXN-101",
+      "timestamp": "2026-04-14T10:30:00Z",
+      "type": "transfer",
+      "amount": 5000,
+      "counterparty": "+8801899887766",
+      "status": "completed"
+    }
+  ]
+}
+```
+
+### Sample Response
+`Status: 200 OK`
+
+```json
+{
+  "ticket_id": "TKT-001",
+  "relevant_transaction_id": "TXN-101",
+  "evidence_verdict": "consistent",
+  "case_type": "wrong_transfer",
+  "severity": "medium",
+  "department": "dispute_resolution",
+  "agent_summary": "Customer mistakenly sent 5000 taka to an incorrect number. Checked history, transaction TXN-101 matches the amount and is completed.",
+  "recommended_next_action": "Contact the recipient to freeze/reverse funds and update the customer.",
+  "customer_reply": "Thank you for reaching out. We have registered your wrong transfer issue. Any eligible amount will be returned through official channels.",
+  "human_review_required": true,
+  "confidence": 1.0,
+  "reason_codes": [
+    "wrong_transfer_detected"
+  ]
+}
+```
